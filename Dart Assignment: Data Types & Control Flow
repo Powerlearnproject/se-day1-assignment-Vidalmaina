@@ -1,0 +1,150 @@
+void main() {
+  // 1. Define Variables
+  int myInt = 10;
+  double myDouble = 3.14;
+  String myString = 'Hello, Dart!';
+  bool myBool = true;
+  List<int> myList = [2, 7, 15, 102];
+
+  print('Int: $myInt');
+  print('Double: $myDouble');
+  print('String: $myString');
+  print('Bool: $myBool');
+  print('List<int>: $myList');
+
+  print('\n--- 2. Type Conversion ---');
+  print('String to int: ${stringToInt("42")}');
+  print('String to double: ${stringToDouble("3.14")}');
+  print('Int to String: ${intToString(99)}');
+  print('Int to double: ${intToDouble(25)}');
+
+  print('\n--- 3. Convert and Display ---');
+  convertAndDisplay("123");
+
+  print('\n--- 4. Control Flow ---');
+
+  print('\nIf-Else: Check number sign');
+  checkNumberSign(-10);
+  checkNumberSign(0);
+  checkNumberSign(20);
+
+  print('\nIf-Else: Voting eligibility');
+  checkVotingEligibility(16);
+  checkVotingEligibility(20);
+
+  print('\nSwitch: Day of the week');
+  printDayOfWeek(3);
+  printDayOfWeek(8); // invalid test
+
+  print('\nFor loop: Print 1 to 10');
+  for (int i = 1; i <= 10; i++) {
+    print(i);
+  }
+
+  print('\nWhile loop: Print 10 to 1');
+  int w = 10;
+  while (w >= 1) {
+    print(w);
+    w--;
+  }
+
+  print('\nDo-while loop: Print 1 to 5');
+  int d = 1;
+  do {
+    print(d);
+    d++;
+  } while (d <= 5);
+
+  print('\n--- 5. Combine Data & Control Flow ---');
+  for (int num in myList) {
+    print('Number: $num');
+
+    // Even or odd
+    if (num % 2 == 0) {
+      print('Even');
+    } else {
+      print('Odd');
+    }
+
+    // Switch case for size
+    switch (num) {
+      case >= 1 && <= 10:
+        print('Category: Small');
+        break;
+      case > 10 && <= 100:
+        print('Category: Medium');
+        break;
+      default:
+        print('Category: Large');
+    }
+    print('---');
+  }
+}
+
+// === 2. Type Conversion Functions ===
+
+int stringToInt(String value) => int.parse(value);
+
+double stringToDouble(String value) => double.parse(value);
+
+String intToString(int value) => value.toString();
+
+double intToDouble(int value) => value.toDouble();
+
+// === 3. convertAndDisplay Function ===
+
+void convertAndDisplay(String number) {
+  int intValue = int.parse(number);
+  double doubleValue = double.parse(number);
+
+  print('Converted to int: $intValue');
+  print('Converted to double: $doubleValue');
+}
+
+// === 4. Control Flow Helpers ===
+
+void checkNumberSign(int number) {
+  if (number > 0) {
+    print('$number is Positive');
+  } else if (number < 0) {
+    print('$number is Negative');
+  } else {
+    print('$number is Zero');
+  }
+}
+
+void checkVotingEligibility(int age) {
+  if (age >= 18) {
+    print('Eligible to vote');
+  } else {
+    print('Not eligible to vote');
+  }
+}
+
+void printDayOfWeek(int day) {
+  switch (day) {
+    case 1:
+      print('Monday');
+      break;
+    case 2:
+      print('Tuesday');
+      break;
+    case 3:
+      print('Wednesday');
+      break;
+    case 4:
+      print('Thursday');
+      break;
+    case 5:
+      print('Friday');
+      break;
+    case 6:
+      print('Saturday');
+      break;
+    case 7:
+      print('Sunday');
+      break;
+    default:
+      print('Invalid day');
+  }
+}
